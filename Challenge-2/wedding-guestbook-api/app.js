@@ -1,10 +1,13 @@
 const express = require('express');
 const app = express();
 const port = process.env.PORT || 3000;
+require('dotenv').config();
 
 const guestRouter = require('./routes/guestRoutes');
 const adminRouter = require('./routes/adminRoutes');
+const connectDB = require('./config/db');
 
+connectDB();
 // Middleware to parse incoming JSON data
 app.use(express.json());
 
